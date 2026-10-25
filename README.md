@@ -1,3 +1,65 @@
+# LAB6 — UART 통신 및 FPGA 주변장치 실습
+
+- 과목: 전자전기컴퓨터설계실험Ⅱ
+- 학번 / 이름: 2023440129 / 조성현
+- STM32: NUCLEO-G474RE
+- FPGA: Combo II-DLD S75 / xc7s75fgga484-1
+
+## 실험 내용 및 사전 검증 결과
+
+| 구분 | 내용 | 사전 검증 결과 |
+|---|---|---|
+| STM32 과제5 | 입력 문자의 문자값과 16진수 바이트값 출력 | 빌드 성공 |
+| STM32 과제6 | PC에서 받은 문자를 FPGA UART로 전달 | 빌드 성공 |
+| FPGA 과제6 | UART 수신 데이터를 다시 송신하는 Echo 동작 | 시뮬레이션 PASS |
+| STM32 과제7 | UART 명령을 이용한 FPGA LED 제어 | 빌드 성공 |
+| FPGA 과제7 | `0`, `1`, `2`, `A` 명령에 따른 LED 상태 제어 | 시뮬레이션 PASS |
+| FPGA 실습1 | 서보모터 위치 선택 및 PWM 신호 생성 | 시뮬레이션 PASS |
+| FPGA 실습2 | SRAM 쓰기·읽기 및 양방향 데이터 버스 제어 | 시뮬레이션 PASS |
+| FPGA 실습3 | Ramp 데이터를 이용한 8비트 DAC 출력 | 시뮬레이션 PASS |
+
+사전 검증 범위는 STM32 빌드와 FPGA RTL 시뮬레이션이다. 실제 보드 구현과 동작 검증은 실험 시간에 수행한다. SRAM 및 DAC의 보드용 XDC는 장비와 함께 제공되는 교재 예제를 확인한 후 추가한다.
+
+## 소스 및 증빙 자료
+
+| 항목 | 소스 | 증빙 |
+|---|---|---|
+| STM32 과제5 | 과제별 커밋 참조 | [빌드 결과](evidence/stm32/assignment5/) |
+| STM32 과제6 | 과제별 커밋 참조 | [빌드 결과](evidence/stm32/assignment6/) |
+| UART Echo | [RTL·테스트벤치·XDC](fpga/uart/) | [PASS·파형](evidence/fpga/uart_echo/) |
+| STM32 과제7 | 과제별 커밋 참조 | [빌드 결과](evidence/stm32/assignment7/) |
+| UART LED | [RTL·테스트벤치·XDC](fpga/uart/) | [PASS·파형](evidence/fpga/uart_led/) |
+| 서보모터 | [RTL·테스트벤치·XDC](fpga/servo/) | [PASS·파형·핵심 코드](evidence/fpga/servo/) |
+| SRAM | [RTL·테스트벤치](fpga/sram/) | [PASS·파형·핵심 코드](evidence/fpga/sram/) |
+| DAC | [RTL·테스트벤치](fpga/dac/) | [PASS·파형·핵심 코드](evidence/fpga/dac/) |
+
+## STM32 과제별 소스
+
+현재 작업 파일은 과제7 상태이며, 이전 과제 코드는 다음 커밋에 보존되어 있다.
+
+- 과제5: `7a17aa6`
+- 과제6 STM32: `8f522f0`
+- 과제6 FPGA UART Echo: `8185191`
+- 과제7: `a5edffd`
+
+## FPGA 최상위 모듈
+
+| 실습 | 시뮬레이션 대상 | 보드 구현 대상 |
+|---|---|---|
+| UART Echo | `lab3_uart_echo` | `lab3_uart_echo` |
+| UART LED | `lab6_uart_led` | `lab6_uart_led` |
+| 서보모터 | 테스트벤치 | `servo_board` |
+| SRAM | 테스트벤치 | 실험 시간에 교재 예제로 확인 |
+| DAC | 테스트벤치 | 실험 시간에 교재 예제로 확인 |
+
+## 실험 전 보고서
+
+- [LAB6 실험 전 보고서 PDF](reports/pre/LAB6_실험전보고서_2023440129_조성현.pdf)
+- 소스·증빙 기준 태그: `lab6-pre-v1`
+
+---
+
+
 # STM32 기초 실습
 
 **실습 보드: NUCLEO-G474RE**
