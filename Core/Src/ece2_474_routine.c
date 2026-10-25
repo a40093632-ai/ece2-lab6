@@ -57,8 +57,11 @@ void polling_routine(void)
     {
         uint8_t data = (uint8_t)ch;
 
-        printf("Character: %c, Byte: 0x%02X\r\n",
-               ch, (unsigned int)data);
+        HAL_StatusTypeDef result =
+            HAL_UART_Transmit(&huart3, &data, 1U, 100U);
+
+        printf("Character: %c, Byte: 0x%02X, TX result: %d\r\n",
+               ch, (unsigned int)data, (int)result);
     }
 }
 
