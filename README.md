@@ -55,7 +55,10 @@
 ## 실험 전 보고서
 
 - [LAB6 실험 전 보고서 PDF](reports/pre/LAB6_실험전보고서_2023440129_조성현.pdf)
-- 소스·증빙 기준 태그: `lab6-pre-v1`
+- [소스·증빙 기준 태그: lab6-pre-v1](https://github.com/a40093632-ai/ece2-lab6/tree/lab6-pre-v1)
+- 기준 커밋: `55e0cd5c1fb2b9a8817b584bf5e96660f86852fa`
+
+보고서 PDF는 소스·증빙 기준 태그 이후 별도 커밋으로 추가하였다.
 
 ---
 
