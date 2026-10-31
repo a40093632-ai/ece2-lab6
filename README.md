@@ -18,7 +18,7 @@
 | FPGA 실습2 | SRAM 쓰기·읽기 및 양방향 데이터 버스 제어 | 시뮬레이션 PASS |
 | FPGA 실습3 | Ramp 데이터를 이용한 8비트 DAC 출력 | 시뮬레이션 PASS |
 
-사전 검증 범위는 STM32 빌드와 FPGA RTL 시뮬레이션이다. 실제 보드 구현과 동작 검증은 실험 시간에 수행한다. SRAM 및 DAC의 보드용 XDC는 장비와 함께 제공되는 교재 예제를 확인한 후 추가한다.
+사전 검증 범위는 STM32 빌드와 FPGA RTL 시뮬레이션이다. 실제 보드 구현과 동작 검증은 실험 시간에 수행한다. SRAM과 DAC의 보드용 XDC는 각각 fpga/sram/constraints/와 fpga/dac/constraints/에 정리했다.
 
 ## 소스 및 증빙 자료
 
@@ -60,8 +60,22 @@
 
 보고서 PDF는 소스·증빙 기준 태그 이후 별도 커밋으로 추가하였다.
 
----
+## 실험 후 증빙 자료
 
+과제 6·7은 STM32에서 UART 데이터를 송신하고 FPGA에서 각각 Echo와 LED 제어를 수행했다. STM32 빌드와 보드 시연은 과제별 폴더에, FPGA의 Verilog 검증과 Vivado 구현 결과는 기능별 폴더에 정리했다.
+
+| 항목 | 보드 시연 | FPGA 검증·구현 결과 | 비트스트림 |
+|---|---|---|---|
+| 과제 5: STM32 문자 출력 | [사진·영상](evidence/stm32/assignment5/board/) | 해당 없음 | 해당 없음 |
+| 과제 6: STM32–FPGA UART Echo | [사진·영상](evidence/stm32/assignment6/board/) | [Verilog 검증](evidence/fpga/uart_echo/) · [Vivado 결과](evidence/fpga/uart_echo/vivado/) | [lab6_uart_echo.bit](artifacts/bit/lab6_uart_echo.bit) |
+| 과제 7: STM32–FPGA UART LED | [사진·영상](evidence/stm32/assignment7/board/) | [Verilog 검증](evidence/fpga/uart_led/) · [Vivado 결과](evidence/fpga/uart_led/vivado/) | [lab6_uart_led.bit](artifacts/bit/lab6_uart_led.bit) |
+| 실습 1: Servo PWM | [사진·영상](evidence/fpga/servo/board/) | [Verilog 검증](evidence/fpga/servo/) · [Vivado 결과](evidence/fpga/servo/vivado/) | [lab6_servo.bit](artifacts/bit/lab6_servo.bit) |
+| 실습 2: SRAM | [사진·영상](evidence/fpga/sram/board/) | [Verilog 검증](evidence/fpga/sram/) · [Vivado 결과](evidence/fpga/sram/vivado/) | [lab6_sram.bit](artifacts/bit/lab6_sram.bit) |
+| 실습 3: DAC | [사진·영상](evidence/fpga/dac/board/) | [Verilog 검증](evidence/fpga/dac/) · [Vivado 결과](evidence/fpga/dac/vivado/) | [lab6_dac.bit](artifacts/bit/lab6_dac.bit) |
+
+각 `vivado/` 폴더에는 Design Runs, DRC, Timing, Utilization, Vivado 파형·PASS, 비트스트림 SHA-256 캡처를 보관했다.
+
+---
 
 # STM32 기초 실습
 
